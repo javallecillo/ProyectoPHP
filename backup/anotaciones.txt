@@ -1,0 +1,42 @@
+Investigar que es el modelo MVC
+    Se encarga de separar la lógica de negocio de la interfaz de usuario y es el mas utilizado en aplicaciones web, framework, etc, ya que facilita la funcionalidad, mantenibilidad, y escalabilidad del sistema, de forma comoda y sencilla, a la vez que ayuda no mezclar lenguajes de programación en el mismo código, el conocido “código espagueti”.
+
+    MVC divide las aplicaciones en tres niveles de abstracción:
+    • Modelo: es la lógica de negocios. Es decir las clases y métodos que se comunican directamente con la base de datos.
+
+    • Vista: es la encargada de mostrar la información al usuario, de forma gráfica y legible.
+
+    • Controlador: el intermediario entre la vista y el modelo, se encarga de controlar las interacciones del usuario en la vista, pide los datos al modelo y los devuelve de nuevo a la vista para que esta los muestre al usuario. Es decir las llamadas a clases y métodos, y los datos recibidos de formularios.
+
+Funcionamiento del modelo MVC
+    El funcionamiento básico del patrón MVC, puede resumirse en:
+    • El usuario realiza una petición.
+    • El controlador captura la petición.
+    • Hace la llamada al modelo correspondiente.
+    • El modelo sera el encargado de interactuar con la base de datos.
+    • El controlador recibe la información y la enviá a la vista.
+    • La vista muestra la información.
+
+Que es una URL amigable
+    Se le dice url amigable o limpia porque va a ser mucho más amiga de buscadores como google y además también se dice limpia porque si se ha construido bien podrá ser leida por cualquier humano y se hará una idea exacta de en que parte de la aplicación web está.
+
+Ejemplos de URL amigable y una no amigable
+    • url no amigable: http://impressas.es/empresa.php?empresa=embutidos-la-serena
+    • url amigable: http://impressas.es/empresa/embutidos-la-serena
+
+    Las url limpias no muestran los caracteres ? ni =, tampoco aparece el nombre del fichero php. Básicamente hacer una url de estas características consiste en usar el nombre de la variable ($_GET) como si fuese una carpeta de nuestro directorio y el valor de la variable como si fuese el nombre de una página.
+
+Como configurar una URL amigable en PHP
+
+    URL amigable con .htaccess
+    Para hacer las url limpias con .htaccess necesitamos 4 puntos básicos:
+
+    • El fichero .htaccess, normalmente se sitúa en la raiz de nuestro servidor (/www o /httpdocs), pero algunos alojamientos lo incluyen en otras carpetas.
+    • El módulo mod_rewrite instalado y activado, podemos saber si esta activo o instalado usando esta función de php «php_info()», simplemente debemos hacer un fichero donde la llamemos y se nos mostrará en el navegador una tabla con los distintos módulos cargados e instalados. • En esa tabla deberá aparecer mod_rewrite.
+    • Creación del contenido de .htaccess donde usaremos el módulo y pondremos la expresión regular que va a limpiar nuestra url.
+    • Cambiar los <a href=…. de nuestra aplicación y el sitemap para que la nueva configuración de url sea real.
+
+
+FUENTES
+https://victorroblesweb.es/2013/11/18/tutorial-mvc-en-php-nativo/
+https://juanluismora.es/seo/url-limpias-con-php.html
