@@ -1,0 +1,8 @@
+DELIMITER //
+CREATE PROCEDURE SP_Deleteuser (
+	IN _Id INTEGER
+) 
+BEGIN
+
+	DELETE FROM users WHERE Id=_Id;
+END //

@@ -31,7 +31,7 @@
                         echo "<td>".$Value-> Category_Id."</td>";
                         echo "<td>
                         <a href='/User/Registry/".$Value->Id."' class='btn btn-sm btn-primary'>Editar</a>
-                        <a href='' class='btn btn-sm btn-danger'>Eliminar</a>
+                        <a href='javascript:eliminar(".$Value->Id.");' class='btn btn-sm btn-danger'>Eliminar</a>
                         </td>";
                     echo "</tr>";
                 }
@@ -42,7 +42,26 @@
 </div>
 
 <script>
-    $.post( "/API", function(data){
-        console.log(data);
-    } );
+    function eliminar(id) {
+        if(confirm("¿Está seguro de eliminar este usuario?")) {
+            var data = {id:id, table:'user'};
+
+            $.post("/API?method=Delete", data, function(dat) {
+                console.log(dat);
+                if(dat.success) {
+                    alert(dat.message);
+                    location.reload();
+                } else {
+                    alert("Error: " + dat.message);
+                }
+            })
+        }
+    }
+
+
+    // data = {id:'1', table:'user'};
+
+    // $.post( "/API?method=Delete",data , function(dat){
+    //     console.log(dat);
+    // } );
 </script>

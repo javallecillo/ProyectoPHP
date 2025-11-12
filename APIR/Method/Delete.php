@@ -1,4 +1,4 @@
-<?
+<?php
     use Config\Conexion as Conexion;
     $Conexion = new Conexion();
     $Conexion = $Conexion->getConexion();
@@ -13,7 +13,7 @@
         );  
 
         echo json_encode($json);
-        http_response_code(400);
+        http_response_code(200);
         exit;
     }
 
@@ -24,7 +24,7 @@
         );
 
         echo json_encode($json);
-        http_response_code(400);
+        http_response_code(200);
         exit;
     }
 
@@ -47,7 +47,7 @@
         );
 
         echo json_encode($json),
-        http_response_code(500);
+        http_response_code(200);
     }
 
 ?>
