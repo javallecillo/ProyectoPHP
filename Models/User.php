@@ -26,6 +26,20 @@
             return $stmt->fetch(\PDO::FETCH_OBJ);
         }
 
+        public function getNewId() {
+            $sql = "SELECT * FROM Users ORDER BY Id DESC LIMIT 0,1";
+            $stmt = $this->Conexion->prepare($sql);
+            $stmt->execute();
+            $data = $stmt->fetch(\PDO::FETCH_OBJ);
+            
+            if(!$data) {
+                return "1";
+            } else {
+                return intval($data->Id) + 1;
+            }
+            
+        }
+
         public function forUserName($username, $password) {
             $sql = "SELECT * FROM Users WHERE UserName =:UserName AND Password = :Password";
             $stmt = $this->Conexion->prepare($sql);

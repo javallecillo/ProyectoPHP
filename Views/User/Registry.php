@@ -16,7 +16,7 @@
 
                     <div class="form-group">
                         <label for="Id" class="form-label">Id</label>
-                        <input type="text" name="Id" id="Id" class="form-control" value="<?php echo $JData->Id; ?>">
+                        <input type="text" name="Id" id="Id" class="form-control" readonly value="<?php echo $JData->Id; ?>">
                     </div>
 
                     <div class="form-group">
@@ -49,6 +49,7 @@
                         <input type="text" name="Category_Id" id="Category_Id" class="form-control" value="<?php echo $JData->Category_Id; ?>">
                     </div>
 
+                    <a href="/User" class="btn btn-warning">Regresar</a>
                     <button type="submit" class="btn btn-primary">Aceptar</button>
 
                 </form>

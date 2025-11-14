@@ -3,6 +3,10 @@
 <div class="card mb-grid">
     <div class="card-header d-flex justify-content-between align-items-center">
         <div class="card-header-title">Lista de Usuarios</div>
+
+        <div class="pulleft">
+            <a href='/User/Registry/' class="btn btn-sm btn-primary">Agregar Usuario</a>
+        </div>
     </div>
 
     <div class="table-responsive-md">

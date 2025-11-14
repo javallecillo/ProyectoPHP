@@ -31,7 +31,15 @@
                 $this->userModel->save($user);
                 return $user;
             }
-            return $this->userModel->getForId($Id);
+
+            $data = $this->userModel->getForId($Id); 
+            
+            if(!$data) {
+                $data = new eUser();
+                $data->Id = $this->userModel->getNewId();
+            }
+
+            return $data;
         }
     }
 ?>
