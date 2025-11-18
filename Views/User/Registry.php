@@ -1,5 +1,8 @@
 <?php
- //echo json_encode($JData);
+    use Models\UserCategory as UserCategory;
+    $userCategory = new UserCategory();
+    $userCategory = $userCategory->toList();
+    echo json_encode($userCategory);
 ?>
 
 <div class="row">
@@ -16,7 +19,7 @@
 
                     <div class="form-group">
                         <label for="Id" class="form-label">Id</label>
-                        <input type="text" name="Id" id="Id" class="form-control" readonly value="<?php echo $JData->Id; ?>">
+                        <input require type="text" name="Id" id="Id" class="form-control" readonly value="<?php echo $JData->Id; ?>">
                     </div>
 
                     <div class="form-group">
@@ -46,7 +49,14 @@
 
                     <div class="form-group">
                         <label for="Category_Id" class="form-label">Id Categoria</label>
-                        <input type="text" name="Category_Id" id="Category_Id" class="form-control" value="<?php echo $JData->Category_Id; ?>">
+                        <select name="Category_Id" id="Category_Id">
+                            <?php
+                                foreach($userCategory as $key => $value) {
+                                    $selected = ($JData->Category_Id == $category->Id) ? 'selected' : '';
+                                    echo "<option value='".$value->Id."' $selected>".$value->Description."</option>";
+                                }
+                            ?>
+                        </select>
                     </div>
 
                     <a href="/User" class="btn btn-warning">Regresar</a>

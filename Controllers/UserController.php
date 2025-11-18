@@ -19,12 +19,18 @@
 
         public function Registry($Id)
         {
+            $success = true;
             if(isset($_POST) && isset($_POST['Registrar'])){
                 $user = new eUser();
 
                 foreach($_POST as $key => $value) {
                     $user->$key = $value;
                     //echo "$key : $value <br>";
+                }
+
+                if(empty($user->UserName)) {
+                    echo '<div class="alert alert-danger" role="alert">El nombre de usuario es obligatorio</div>';
+                    $success = false;
                 }
 
                 //echo json_encode($user);
